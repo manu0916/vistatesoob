@@ -1,0 +1,18 @@
+# Tesoob — página inicial independente
+
+Esta versão contém somente a página inicial e o painel `/admin`. Não há loja, contas de clientes nem chat no site. Os botões de encomenda abrem o WhatsApp; links de referências incluem a identificação da peça na mensagem. O contato é editável pelo painel.
+
+## Desenvolvimento local
+
+Requer Node.js 22.13 ou mais recente.
+
+1. `npm ci`
+2. Copie `.dev.vars.example` para `.dev.vars` e defina um e-mail e uma senha forte (12 caracteres ou mais). O arquivo real é ignorado pelo Git.
+3. `npm run dev`
+4. Acesse `/admin`, entre e salve o número com DDI (ex.: `+55 35 99999-9999`) ou um link oficial `https://wa.me/5535999999999`.
+
+O desenvolvimento usa um D1 local. Antes da primeira configuração, os botões abrem o WhatsApp sem destinatário fixo. Não há número de cliente ou credenciais gravados no repositório.
+
+## Publicação
+
+Para publicar no Cloudflare, crie um banco D1 **novo para este clone** e vincule-o como `DB` no Worker publicado. A identificação do banco local no `vite.config.ts` é apenas para desenvolvimento; o build não inclui um banco de produção. Configure `TESOOB_ADMIN_EMAIL` e `TESOOB_ADMIN_PASSWORD` como secrets do Worker. Não compartilhe o banco nem as credenciais com o site original. O esquema é criado automaticamente no primeiro acesso. Execute `npm run build` para validar a aplicação.
