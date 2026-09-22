@@ -392,9 +392,9 @@ figure {
   background: transparent;
 }
 .contact-dialog {
-  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-  width: min(880px, calc(100vw - 32px));
-  max-width: 880px;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  width: min(760px, calc(100vw - 40px));
+  max-width: 760px;
   gap: 0;
   overflow: hidden;
   border: 1px solid #4a4a4a;
@@ -405,7 +405,7 @@ figure {
 }
 .contact-dialog-visual {
   position: relative;
-  min-height: 610px;
+  min-height: 520px;
   overflow: hidden;
   background: #111;
 }
@@ -425,43 +425,43 @@ figure {
 .contact-dialog-visual > span {
   position: absolute;
   z-index: 1;
-  top: 24px;
-  left: 24px;
+  top: 20px;
+  left: 20px;
   font-size: 8px;
   letter-spacing: 2px;
 }
 .contact-dialog-visual .contact-dialog-logo {
   position: absolute;
   z-index: 1;
-  bottom: 28px;
-  left: 24px;
-  width: min(210px, 70%);
+  bottom: 22px;
+  left: 20px;
+  width: min(175px, 70%);
   height: auto;
 }
 .contact-dialog-copy {
   display: flex;
   flex-direction: column;
-  padding: clamp(32px, 5vw, 58px);
+  padding: clamp(28px, 3.4vw, 42px);
 }
 .contact-dialog-topline {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 42px;
+  margin-bottom: 28px;
   color: var(--muted-foreground);
   font-size: 8px;
   letter-spacing: 2px;
 }
 .contact-dialog-close[data-slot='button'] {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--border);
   border-radius: 0;
 }
 .contact-dialog-title {
-  margin: 22px 0 18px;
+  margin: 18px 0 14px;
   font-family: 'Barlow Condensed', Impact, sans-serif;
-  font-size: clamp(52px, 5.6vw, 76px);
+  font-size: clamp(46px, 4.6vw, 62px);
   font-weight: 700;
   line-height: 0.88;
   letter-spacing: -1px;
@@ -472,8 +472,8 @@ figure {
 .contact-dialog-description {
   max-width: 440px;
   color: #a9a9a9;
-  font-size: 12px;
-  line-height: 1.8;
+  font-size: 11px;
+  line-height: 1.7;
 }
 .contact-dialog-description strong {
   color: var(--paper);
@@ -481,16 +481,16 @@ figure {
 }
 .contact-dialog-actions {
   display: grid;
-  gap: 10px;
-  margin-top: 34px;
+  gap: 8px;
+  margin-top: 24px;
 }
 .contact-channel {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 72px;
+  min-height: 60px;
   border: 1px solid var(--border);
-  padding: 12px 18px;
+  padding: 10px 15px;
   transition:
     border-color 160ms ease,
     background 160ms ease,
@@ -499,9 +499,9 @@ figure {
 .contact-channel > span {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   font-family: 'Barlow Condensed', Impact, sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -536,7 +536,7 @@ figure {
 }
 .contact-dialog-note {
   margin-top: auto;
-  padding-top: 28px;
+  padding-top: 20px;
   color: #747474;
   font-size: 7px;
   letter-spacing: 1.4px;
@@ -544,40 +544,41 @@ figure {
 @media (max-width: 700px) {
   .contact-dialog {
     grid-template-columns: 1fr;
-    width: calc(100vw - 20px);
-    max-height: calc(100dvh - 20px);
+    width: min(340px, calc(100vw - 24px));
+    max-height: calc(100dvh - 32px);
     overflow-y: auto;
   }
   .contact-dialog-visual {
-    min-height: 190px;
-    height: 190px;
+    min-height: 130px;
+    height: 130px;
   }
   .contact-dialog-visual > img:first-of-type {
     object-position: center 28%;
   }
   .contact-dialog-visual .contact-dialog-logo {
-    bottom: 20px;
-    left: 18px;
-    width: 145px;
+    bottom: 14px;
+    left: 14px;
+    width: 120px;
   }
   .contact-dialog-visual > span {
-    top: 18px;
-    left: 18px;
+    top: 14px;
+    left: 14px;
   }
   .contact-dialog-copy {
-    padding: 24px;
+    padding: 18px;
   }
   .contact-dialog-topline {
-    margin-bottom: 25px;
+    margin-bottom: 18px;
   }
   .contact-dialog-title {
-    font-size: clamp(48px, 16vw, 68px);
+    margin: 16px 0 12px;
+    font-size: clamp(40px, 13vw, 52px);
   }
   .contact-dialog-actions {
-    margin-top: 24px;
+    margin-top: 18px;
   }
   .contact-dialog-note {
-    padding-top: 20px;
+    padding-top: 16px;
   }
 }
 .preview-grid {
