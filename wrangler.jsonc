@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "vistatesoob",
+  "pages_build_output_dir": "./.pages-dist",
+  "compatibility_date": "2026-09-22",
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "tesoob-temp",
+      "database_id": "00106da8-38d5-4e33-9d2b-d0e81304b723"
+    }
+  ]
+}

@@ -15,4 +15,4 @@ O desenvolvimento usa um D1 local. Antes da primeira configuração, os botões 
 
 ## Publicação
 
-Para publicar no Cloudflare, crie um banco D1 **novo para este clone** e vincule-o como `DB` no Worker publicado. A identificação do banco local no `vite.config.ts` é apenas para desenvolvimento; o build não inclui um banco de produção. Configure `TESOOB_ADMIN_EMAIL` e `TESOOB_ADMIN_PASSWORD` como secrets do Worker. Não compartilhe o banco nem as credenciais com o site original. O esquema é criado automaticamente no primeiro acesso. Execute `npm run build` para validar a aplicação.
+O projeto Cloudflare Pages `vistatesoob` usa o banco D1 separado `tesoob-temp`, vinculado como `DB`. Configure `TESOOB_ADMIN_EMAIL` e `TESOOB_ADMIN_PASSWORD` como secrets do Pages. Não compartilhe o banco nem as credenciais com o site original. O esquema é criado automaticamente no primeiro acesso. Execute `npm run deploy` para validar e publicar a aplicação.
