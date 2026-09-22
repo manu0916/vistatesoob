@@ -381,6 +381,205 @@ figure {
   border-color: var(--paper);
   background: #ffffff0c;
 }
+.contact-trigger {
+  appearance: none;
+  color: inherit;
+  cursor: pointer;
+}
+.header-contact.contact-trigger {
+  border: 0;
+  border-bottom: 1px solid #656565;
+  background: transparent;
+}
+.contact-dialog {
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  width: min(880px, calc(100vw - 32px));
+  max-width: 880px;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid #4a4a4a;
+  border-radius: 0;
+  background: #0b0b0b;
+  padding: 0;
+  box-shadow: 0 28px 90px #000c;
+}
+.contact-dialog-visual {
+  position: relative;
+  min-height: 610px;
+  overflow: hidden;
+  background: #111;
+}
+.contact-dialog-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #0005 0%, transparent 38%, #000c 100%);
+}
+.contact-dialog-visual > img:first-of-type {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.08);
+  opacity: 0.82;
+}
+.contact-dialog-visual > span {
+  position: absolute;
+  z-index: 1;
+  top: 24px;
+  left: 24px;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+.contact-dialog-visual .contact-dialog-logo {
+  position: absolute;
+  z-index: 1;
+  bottom: 28px;
+  left: 24px;
+  width: min(210px, 70%);
+  height: auto;
+}
+.contact-dialog-copy {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(32px, 5vw, 58px);
+}
+.contact-dialog-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 42px;
+  color: var(--muted-foreground);
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+.contact-dialog-close[data-slot='button'] {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+}
+.contact-dialog-title {
+  margin: 22px 0 18px;
+  font-family: 'Barlow Condensed', Impact, sans-serif;
+  font-size: clamp(52px, 5.6vw, 76px);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -1px;
+}
+.contact-dialog-title span {
+  color: var(--muted-foreground);
+}
+.contact-dialog-description {
+  max-width: 440px;
+  color: #a9a9a9;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.contact-dialog-description strong {
+  color: var(--paper);
+  font-weight: 700;
+}
+.contact-dialog-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 34px;
+}
+.contact-channel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  border: 1px solid var(--border);
+  padding: 12px 18px;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+.contact-channel > span {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Barlow Condensed', Impact, sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.contact-channel > span > span {
+  display: grid;
+  gap: 5px;
+}
+.contact-channel small {
+  color: var(--muted-foreground);
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+}
+.contact-channel-primary {
+  border-color: var(--paper);
+  background: var(--paper);
+  color: var(--background);
+  text-shadow: none;
+}
+.contact-channel-primary small {
+  color: #505050;
+}
+.contact-channel:hover {
+  border-color: var(--paper);
+  background: #191919;
+  transform: translateX(3px);
+}
+.contact-channel-primary:hover {
+  background: #d2d2d2;
+  color: var(--background);
+}
+.contact-dialog-note {
+  margin-top: auto;
+  padding-top: 28px;
+  color: #747474;
+  font-size: 7px;
+  letter-spacing: 1.4px;
+}
+@media (max-width: 700px) {
+  .contact-dialog {
+    grid-template-columns: 1fr;
+    width: calc(100vw - 20px);
+    max-height: calc(100dvh - 20px);
+    overflow-y: auto;
+  }
+  .contact-dialog-visual {
+    min-height: 190px;
+    height: 190px;
+  }
+  .contact-dialog-visual > img:first-of-type {
+    object-position: center 28%;
+  }
+  .contact-dialog-visual .contact-dialog-logo {
+    bottom: 20px;
+    left: 18px;
+    width: 145px;
+  }
+  .contact-dialog-visual > span {
+    top: 18px;
+    left: 18px;
+  }
+  .contact-dialog-copy {
+    padding: 24px;
+  }
+  .contact-dialog-topline {
+    margin-bottom: 25px;
+  }
+  .contact-dialog-title {
+    font-size: clamp(48px, 16vw, 68px);
+  }
+  .contact-dialog-actions {
+    margin-top: 24px;
+  }
+  .contact-dialog-note {
+    padding-top: 20px;
+  }
+}
 .preview-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -8,6 +8,8 @@ import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
+  Camera,
+  MessageCircle,
   Minus,
   Play,
   Plus,
@@ -77,15 +79,113 @@ export function ContactLink({
   className?: string;
   input?: OrderInput;
 } & CloneContact) {
+  const [open, setOpen] = useState(false);
+  const reference = input?.reference;
   return (
-    <a
-      className={className}
-      href={cloneWhatsAppUrl(cloneWhatsAppNumber, input)}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {children || 'Encomendar sua peça'} <ArrowUpRight size={18} />
-    </a>
+    <Dialog open={open} onOpenChange={setOpen}>
+      <button
+        type="button"
+        className={`${className} contact-trigger`}
+        onClick={() => setOpen(true)}
+        aria-haspopup="dialog"
+      >
+        {children || 'Encomendar sua peça'} <ArrowUpRight size={18} />
+      </button>
+      <DialogContent
+        className="contact-dialog"
+        showCloseButton={false}
+        aria-describedby="contact-dialog-description"
+      >
+        <div className="contact-dialog-visual" aria-hidden="true">
+          <ArtImage
+            item={photo('editorial-03')}
+            sizes="(max-width:700px) 92vw, 390px"
+          />
+          <span>TESOOB / CONTATO DIRETO</span>
+          <img
+            className="contact-dialog-logo"
+            src="/media/logo-tesoob.png"
+            width="701"
+            height="144"
+            alt=""
+          />
+        </div>
+        <div className="contact-dialog-copy">
+          <div className="contact-dialog-topline">
+            <span>ESCOLHA SEU CANAL</span>
+            <DialogClose
+              render={
+                <Button
+                  className="contact-dialog-close"
+                  variant="ghost"
+                  aria-label="Fechar opções de contato"
+                />
+              }
+            >
+              <X size={20} />
+            </DialogClose>
+          </div>
+          <p className="eyebrow">
+            <span className="red-dot" /> ENCOMENDE SUA PEÇA
+          </p>
+          <DialogTitle className="contact-dialog-title">
+            VAMOS TIRAR
+            <br />
+            SUA IDEIA DO
+            <br />
+            <span>PAPEL.</span>
+          </DialogTitle>
+          <DialogDescription
+            id="contact-dialog-description"
+            className="contact-dialog-description"
+          >
+            {reference ? (
+              <>
+                A referência <strong>{reference}</strong> já vai identificada na
+                sua mensagem. Escolha por onde prefere conversar.
+              </>
+            ) : (
+              'Escolha por onde prefere conversar com a Tesoob sobre valores, disponibilidade e possibilidades.'
+            )}
+          </DialogDescription>
+          <div className="contact-dialog-actions">
+            <a
+              href={cloneWhatsAppUrl(cloneWhatsAppNumber, input)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-channel contact-channel-primary"
+            >
+              <span>
+                <MessageCircle size={20} />
+                <span>
+                  <small>RESPOSTA DIRETA</small>
+                  WhatsApp
+                </span>
+              </span>
+              <ArrowUpRight size={20} />
+            </a>
+            <a
+              href={siteConfig.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-channel"
+            >
+              <span>
+                <Camera size={20} />
+                <span>
+                  <small>@VISTATESOOB</small>
+                  Instagram
+                </span>
+              </span>
+              <ArrowUpRight size={20} />
+            </a>
+          </div>
+          <p className="contact-dialog-note">
+            SEM CADASTRO / CONVERSA DIRETA COM A MARCA
+          </p>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 
