@@ -15,4 +15,4 @@ O desenvolvimento usa um D1 local. Antes da primeira configuração, os botões 
 
 ## Publicação
 
-O projeto Cloudflare Pages `vistatesoob` usa o banco D1 separado `tesoob-temp`, vinculado como `DB`. Configure `TESOOB_ADMIN_EMAIL` e `TESOOB_ADMIN_PASSWORD` como secrets do Pages. Não compartilhe o banco nem as credenciais com o site original. O esquema é criado automaticamente no primeiro acesso. Execute `npm run deploy` para validar e publicar a aplicação.
+O projeto Cloudflare Pages `vistatesoob` usa o banco D1 separado `tesoob-temp`, vinculado como `DB`. No Pages, o comando de build deve ser `npm run build:pages` e a saída `.pages-dist`. A configuração usada pelo deploy manual fica em `deploy/wrangler.pages.jsonc`, fora da raiz, para não substituir o comando de build da integração Git. Configure `TESOOB_ADMIN_EMAIL` e `TESOOB_ADMIN_PASSWORD` como secrets do Pages. Não compartilhe o banco nem as credenciais com o site original. O esquema é criado automaticamente no primeiro acesso. Execute `npm run deploy` para validar e publicar a aplicação.

@@ -50,6 +50,6 @@ await writeFile(
 await mkdir(join(root, '.wrangler/deploy'), { recursive: true });
 await writeFile(
   join(root, '.wrangler/deploy/config.json'),
-  JSON.stringify({ configPath: '../../wrangler.jsonc' }),
+  JSON.stringify({ configPath: '../../deploy/wrangler.pages.jsonc' }),
 );
 console.log('Pages artifact ready: .pages-dist (SSR + API + D1 binding).');
